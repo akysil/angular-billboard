@@ -1,0 +1,44 @@
+{
+  "name": "angular-billboard",
+  "version": "0.0.1",
+  "description": "Angular component for billboard.js",
+  "main": "dist/bundles/angular-billboard.umd.js",
+  "module": "dist/index.js",
+  "scripts": {
+    "cleanup": "rimraf dist/bundles dist/src dist/index.d.ts dist/index.metadata.json dist/index.js dist/index.js.map dist/LICENSE dist/README.md",
+    "bundling": "rollup -c",
+    "minify": "uglifyjs dist/bundles/angular-billboard.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/angular-billboard.umd.min.js",
+    "copy": "copyfiles LICENSE README.md dist",
+    "build": "npm run cleanup && ngc && npm run bundling && npm run minify && npm run copy"
+  },
+  "keywords": [
+    "angular",
+    "billboard.js"
+  ],
+  "author": "Alex Kysil",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akysil/angular-billboard.git"
+  },
+  "homepage": "https://github.com/akysil/angular-billboard",
+  "bugs": {
+    "url": "https://github.com/akysil/angular-billboard/issues"
+  },
+  "dependencies": {
+    "@angular/core": "^4.2.4",
+    "billboard.js": "^1.0.0",
+    "reflect-metadata": "~0.1.10",
+    "rxjs": "^5.4.1",
+    "zone.js": "~0.8.12"
+  },
+  "devDependencies": {
+    "@angular/compiler": "^4.2.4",
+    "@angular/compiler-cli": "^4.2.4",
+    "copyfiles": "^1.2.0",
+    "rimraf": "^2.6.1",
+    "rollup": "^0.43.0",
+    "typescript": "^2.3.4",
+    "uglify-js": "^3.0.19"
+  }
+}

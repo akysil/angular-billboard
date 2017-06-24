@@ -1,0 +1,26 @@
+{
+    "name": "angular-billboard",
+    "version": "0.0.1",
+    "description": "Angular component for billboard.js",
+    "main": "bundles/angular-billboard.umd.js",
+    "module": "index.js",
+    "typings": "index.d.ts",
+    "keywords": [
+        "angular",
+        "billboard.js"
+    ],
+    "author": "Alex Kysil",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/akysil/angular-billboard.git"
+    },
+    "homepage": "https://github.com/akysil/angular-billboard",
+    "bugs": {
+        "url": "https://github.com/akysil/angular-billboard/issues"
+    },
+    "peerDependencies": {
+        "@angular/core": "^2.4.0 || ^4.0.0",
+        "billboard.js": "^1.0.0"
+    }
+}
