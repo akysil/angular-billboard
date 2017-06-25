@@ -6,7 +6,7 @@
 
 ## Install
 ```bash
-$ npm install angular-billboard --save`
+$ npm install angular-billboard --save
 ```
 ## Usage
 #### Module
