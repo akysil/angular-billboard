@@ -5,9 +5,9 @@
 [billboard.js](https://naver.github.io/billboard.js/) for Angular.
 
 ## Install
-
-    npm install angular-billboard --save
-
+```bash
+$ npm install angular-billboard --save`
+```
 ## Usage
 #### Module
 Include the `AngularBillboardModule` in your app root module.
