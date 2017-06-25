@@ -9,7 +9,7 @@
     npm install angular-billboard --save
 
 ## Usage
-####Module
+#### Module
 Include the `AngularBillboardModule` in your app root module.
 ```ts
 import { NgModule } from '@angular/core';
@@ -24,7 +24,7 @@ import { AngularBillboardModule } from 'angular-billboard';
 })
 export class AppModule {}
 ``` 
-####Component
+#### Component
 Inject the `AngularBillboardService` where you need it.
 ```ts
 import { Component, OnInit } from '@angular/core';
@@ -65,13 +65,13 @@ export class AppComponent implements OnInit {
     }
 }
 ```
-####Template
+#### Template
 Use `<angular-billboard>` tag in template. The component needs a billboards.js chart object passed as `chart` argument.
 ```html
 <angular-billboard *ngFor="let chart of charts" [chart]="chart">
 </angular-billboard>
 ```
-##API
+## API
 The API follows the [billboard.js API](https://naver.github.io/billboard.js/release/latest/doc/)
-##License
+## License
 MIT
