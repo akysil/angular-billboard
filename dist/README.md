@@ -37,6 +37,7 @@
 Include the `AngularBillboardModule` in your app root module.
 
 ```typescript
+    // app.module.ts 
     import { NgModule } from '@angular/core';
     import { BrowserModule } from '@angular/platform-browser';
     import { AppComponent } from './app.component';
@@ -55,16 +56,13 @@ Include the `AngularBillboardModule` in your app root module.
 Inject the `AngularBillboardService` where you need it.
 
 ```typescript
+    // app.component.ts
     import { Component, OnInit } from '@angular/core';
     import { AngularBillboardService } from 'angular-billboard'
     
     @Component({
         selector:    'app-root',
-        templateUrl: './app.component.html',
-        template: `
-                <angular-billboard *ngFor="let chart of charts" [chart]="chart">
-                </angular-billboard>
-            `
+        templateUrl: './app.component.html'
     })
     export class AppComponent implements OnInit {
         
@@ -99,6 +97,7 @@ Inject the `AngularBillboardService` where you need it.
 Use `<angular-billboard>` tag in template. The component needs a billboards.js chart object passed as the `chart` argument.
 
 ```html
+    <!-- app.component.html -->
     <angular-billboard *ngFor="let chart of charts" [chart]="chart">
     </angular-billboard>
 ```
