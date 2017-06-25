@@ -30,7 +30,7 @@ AngularBillboardComponent.propDecorators = {
     'chart': [{ type: _angular_core.Input },],
 };
 
-var bb = require('billboard.js').bb; // no types import
+var bb = require('billboard.js').bb; // import a module with no types
 var AngularBillboardService = (function () {
     function AngularBillboardService() {
     }

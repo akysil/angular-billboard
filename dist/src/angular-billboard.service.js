@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-var bb = require('billboard.js').bb; // no types import
+var bb = require('billboard.js').bb; // import a module with no types
 var AngularBillboardService = (function () {
     function AngularBillboardService() {
     }
