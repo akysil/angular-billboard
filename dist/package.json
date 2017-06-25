@@ -1,6 +1,6 @@
 {
     "name": "angular-billboard",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "billboard.js for Angular",
     "main": "bundles/angular-billboard.umd.js",
     "module": "index.js",

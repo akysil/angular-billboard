@@ -36,7 +36,7 @@
 
 Include the `AngularBillboardModule` in your app root module.
 
-```ts
+```typescript
     import { NgModule } from '@angular/core';
     import { BrowserModule } from '@angular/platform-browser';
     import { AppComponent } from './app.component';
@@ -54,7 +54,7 @@ Include the `AngularBillboardModule` in your app root module.
 
 Inject the `AngularBillboardService` where you need it.
 
-```ts
+```typescript
     import { Component, OnInit } from '@angular/core';
     import { AngularBillboardService } from 'angular-billboard'
     
