@@ -1,0 +1,91 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "cli": {
+        "analytics": false,
+        "packageManager": "npm"
+    },
+    "newProjectRoot": "projects",
+    "projects": {
+        "angular-billboard": {
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:ng-packagr",
+                    "configurations": {
+                        "development": {
+                            "tsConfig": "projects/angular-billboard/tsconfig.lib.json"
+                        },
+                        "production": {
+                            "tsConfig": "projects/angular-billboard/tsconfig.lib.prod.json"
+                        }
+                    },
+                    "defaultConfiguration": "production",
+                    "options": {
+                        "project": "projects/angular-billboard/ng-package.json"
+                    }
+                }
+            },
+            "prefix": "angular",
+            "projectType": "library",
+            "root": "projects/angular-billboard",
+            "sourceRoot": "projects/angular-billboard/src"
+        },
+        "demo": {
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:application",
+                    "configurations": {
+                        "development": {
+                            "extractLicenses": false,
+                            "optimization": false,
+                            "sourceMap": true
+                        },
+                        "production": {
+                            "budgets": [
+                                {
+                                    "maximumError": "1mb",
+                                    "maximumWarning": "500kb",
+                                    "type": "initial"
+                                },
+                                {
+                                    "maximumError": "4kb",
+                                    "maximumWarning": "2kb",
+                                    "type": "anyComponentStyle"
+                                }
+                            ],
+                            "outputHashing": "all"
+                        }
+                    },
+                    "defaultConfiguration": "production",
+                    "options": {
+                        "assets": ["projects/demo/src/favicon.ico"],
+                        "browser": "projects/demo/src/main.ts",
+                        "index": "projects/demo/src/index.html",
+                        "outputPath": "dist/demo",
+                        "polyfills": ["zone.js"],
+                        "scripts": [],
+                        "styles": ["projects/demo/src/styles.css"],
+                        "tsConfig": "projects/demo/tsconfig.app.json"
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "configurations": {
+                        "development": {
+                            "buildTarget": "demo:build:development"
+                        },
+                        "production": {
+                            "buildTarget": "demo:build:production"
+                        }
+                    },
+                    "defaultConfiguration": "development"
+                }
+            },
+            "prefix": "app",
+            "projectType": "application",
+            "root": "projects/demo",
+            "schematics": {},
+            "sourceRoot": "projects/demo/src"
+        }
+    },
+    "version": 1
+}

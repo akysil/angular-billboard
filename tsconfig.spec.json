@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "outDir": "./out-tsc/spec",
+        "types": []
+    },
+    "extends": "./tsconfig.json",
+    "files": ["test-setup.ts"],
+    "include": ["projects/**/*.spec.ts", "projects/**/*.d.ts"]
+}
