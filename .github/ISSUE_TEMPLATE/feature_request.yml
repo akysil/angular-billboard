@@ -1,0 +1,23 @@
+name: Feature request
+description: Suggest an addition to the Angular wrapper
+labels: ["type:feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        angular-billboard is intentionally thin: billboard.js options in, the billboard.js chart instance out. Please explain why this belongs in the wrapper rather than in billboard.js options or app code.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed API
+      render: typescript
+  - type: textarea
+    id: workaround
+    attributes:
+      label: Current workaround
