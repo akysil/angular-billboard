@@ -1,0 +1,14 @@
+changelog:
+  exclude:
+    labels: ["type:chore"]
+  categories:
+    - title: Breaking changes
+      labels: ["breaking"]
+    - title: Features
+      labels: ["type:feature"]
+    - title: Fixes
+      labels: ["type:bug"]
+    - title: Docs and demos
+      labels: ["type:docs", "area:demo"]
+    - title: Other changes
+      labels: ["*"]

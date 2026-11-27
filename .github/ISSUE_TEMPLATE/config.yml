@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: billboard.js options and chart behaviour
+    url: https://naver.github.io/billboard.js/release/latest/doc/
+    about: Chart options and APIs are documented by billboard.js.
+  - name: Security vulnerability
+    url: https://github.com/akysil/angular-billboard/security/advisories/new
+    about: Report vulnerabilities privately, not as a public issue.

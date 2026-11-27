@@ -1,0 +1,55 @@
+name: Bug report
+description: Something in angular-billboard doesn't work as documented
+labels: ["type:bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Questions about chart options belong to [billboard.js](https://naver.github.io/billboard.js/), since this library passes options through unchanged.
+  - type: input
+    id: angular-billboard
+    attributes:
+      label: angular-billboard version
+      placeholder: "x.y.z"
+    validations:
+      required: true
+  - type: input
+    id: angular
+    attributes:
+      label: Angular version
+      placeholder: "x.y.z"
+    validations:
+      required: true
+  - type: input
+    id: billboard
+    attributes:
+      label: billboard.js version
+      placeholder: "x.y.z"
+    validations:
+      required: true
+  - type: dropdown
+    id: zone
+    attributes:
+      label: Change detection
+      options:
+        - zone.js
+        - zoneless
+        - not sure
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: input
+    id: repro
+    attributes:
+      label: Reproduction link
+      description: A StackBlitz or a minimal repository is the fastest way to get this fixed.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Console output or stack trace
+      render: shell
