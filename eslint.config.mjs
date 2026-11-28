@@ -134,7 +134,7 @@ export default tseslint.config(
     },
     {
         extends: [vitest.configs.recommended],
-        files: ['**/*.spec.ts'],
+        files: ['**/*.spec.ts', '**/*.spec.mjs'],
     },
     {
         extends: [tseslint.configs.disableTypeChecked],
