@@ -22,6 +22,7 @@ Use Node 18 or 20 (`.nvmrc` pins 20), then install with `npm ci`.
 | `npm test` | Unit tests with Vitest, with coverage |
 | `npm run build` | Builds the library into `dist/angular-billboard` |
 | `npm run build:demo` | Builds the demo application |
+| `npm run check:package` | Checks the built library package with publint and Are the Types Wrong (run `npm run build` first) |
 | `npm start` | Serves the demo application |
 
 The library lives in `projects/angular-billboard` and the demo app in `projects/demo`.
