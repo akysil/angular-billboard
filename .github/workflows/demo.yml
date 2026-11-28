@@ -1,0 +1,94 @@
+name: Deploy demo
+
+on:
+  workflow_call:
+    inputs:
+      version:
+        description: Library version to deploy, for example 17.0.0
+        required: true
+        type: string
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Library version to deploy, for example 17.0.0
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-demo
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy demo
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    env:
+      BASE_HREF: /${{ github.event.repository.name }}/
+      VERSION: ${{ inputs.version }}
+    steps:
+      - name: Check version
+        run: |
+          if [[ ! "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::Expected a version like 17.0.0, got \"$VERSION\"."
+            exit 1
+          fi
+          echo "MAJOR=${VERSION%%.*}" >> "$GITHUB_ENV"
+
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build library
+        run: npm run build
+
+      - name: Build demo
+        run: |
+          npm run build:demo -- --base-href "${BASE_HREF}v${MAJOR}/" --output-path dist/demo-latest
+          npm run build:demo -- --base-href "${BASE_HREF}v${MAJOR}/${VERSION}/" --output-path dist/demo-snapshot
+
+      - name: Check out gh-pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          remote="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if git ls-remote --exit-code --heads "$remote" gh-pages > /dev/null; then
+            git clone --depth 1 --branch gh-pages "$remote" site
+          else
+            git init --initial-branch gh-pages site
+            git -C site remote add origin "$remote"
+          fi
+
+      - name: Update site
+        run: |
+          node scripts/deploy-demo.mjs \
+            --version "$VERSION" \
+            --angular "$(node -p "require('./node_modules/@angular/core/package.json').version")" \
+            --billboard "$(node -p "require('./node_modules/billboard.js/package.json').version")" \
+            --latest dist/demo-latest/browser \
+            --snapshot dist/demo-snapshot/browser \
+            --site site
+
+      - name: Publish
+        run: |
+          git -C site add --all
+          if git -C site diff --cached --quiet; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          git -C site -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit --message "Deploy demo ${VERSION}"
+          git -C site push origin gh-pages
