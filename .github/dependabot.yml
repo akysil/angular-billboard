@@ -5,3 +5,13 @@ updates:
     schedule:
       interval: weekly
     labels: ["type:chore", "area:ci"]
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    labels: ["type:chore", "dependencies"]
+    groups:
+      angular:
+        patterns:
+          - "@angular/*"
+          - "@angular-devkit/*"
