@@ -12,6 +12,20 @@ Start with the oldest [open issue that is not blocked and not assigned](https://
 2. Open a pull request against `main`.
 3. Add or update tests. CI must pass before merging.
 
+## Development
+
+Use Node 18 or 20 (`.nvmrc` pins 20), then install with `npm ci`.
+
+| Command | What it does |
+| --- | --- |
+| `npm run lint` | ESLint and Prettier over the whole workspace (`npm run lint:fix` fixes what it can) |
+| `npm test` | Unit tests with Vitest, with coverage |
+| `npm run build` | Builds the library into `dist/angular-billboard` |
+| `npm run build:demo` | Builds the demo application |
+| `npm start` | Serves the demo application |
+
+The library lives in `projects/angular-billboard` and the demo app in `projects/demo`.
+
 ## Reporting bugs
 
 Use the bug report form and include a reproduction if you can. Questions about chart options belong to billboard.js.

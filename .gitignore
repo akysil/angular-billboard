@@ -1,5 +1,17 @@
-node_modules/
-dist/
-.angular/
-.idea
-npm-debug.log
+# Dependencies
+/node_modules
+
+# Build and test output
+/dist
+/out-tsc
+/coverage
+/.angular/cache
+
+# Logs
+npm-debug.log*
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

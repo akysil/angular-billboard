@@ -1,0 +1,28 @@
+{
+    "author": "Alex Kysil",
+    "bugs": {
+        "url": "https://github.com/akysil/angular-billboard/issues"
+    },
+    "dependencies": {
+        "tslib": "^2.3.0"
+    },
+    "description": "billboard.js for Angular",
+    "homepage": "https://github.com/akysil/angular-billboard",
+    "keywords": [
+        "angular",
+        "billboard.js",
+        "chart"
+    ],
+    "license": "MIT",
+    "name": "angular-billboard",
+    "peerDependencies": {
+        "@angular/core": "^17.3.0",
+        "billboard.js": "^4.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/akysil/angular-billboard.git"
+    },
+    "sideEffects": false,
+    "version": "0.1.6"
+}
